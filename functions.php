@@ -201,3 +201,23 @@ function change_staff_title_placeholder( $title ) {
     return $title;
 }
 add_filter( 'enter_title_here', 'change_staff_title_placeholder' );
+
+//Changes to student CPT
+//Restrict Block
+function restrict_blocks_for_custom_post_type($settings, $post) {
+    if ($post->post_type == 'students') {
+        $settings['allowed_block_types'] = array();
+    }
+    return $settings;
+}
+add_filter('block_editor_settings', 'restrict_blocks_for_custom_post_type', 10, 2);
+
+//Changes the title in student to "add student name"
+function change_title_placeholder($title) {
+    $screen = get_current_screen();
+    if ($screen->post_type == 'students') {
+        $title = 'Add student name';
+    }
+    return $title;
+}
+add_filter('enter_title_here', 'change_title_placeholder');
