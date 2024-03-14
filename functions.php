@@ -152,6 +152,16 @@ add_action( 'wp_enqueue_scripts', 'school_project_scripts' );
 /**
  * Implement the Custom Header feature.
  */
+require get_template_directory() . '/inc/cpt-taxonomy.php';
+
+/**
+ * Custom template tags for this theme.
+ */
+require get_template_directory() . '/inc/template-tags.php';
+
+/**
+ * Implement the Custom Header feature.
+ */
 require get_template_directory() . '/inc/custom-header.php';
 
 /**
@@ -176,3 +186,38 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+function fwd_excerpt_more( $more) {
+	$more = '...<a href="'. esc_url(get_permalink()) .'">Continue Reading</a>';
+	return $more;
+}
+add_filter( 'excerpt_more', 'fwd_excerpt_more');
+
+//Changes the title in staff to "add staff name"
+function change_staff_title_placeholder( $title ) {
+    $screen = get_current_screen();
+    if ( $screen->post_type == 'staff' ) {
+        $title = 'Add staff name';
+    }
+    return $title;
+}
+add_filter( 'enter_title_here', 'change_staff_title_placeholder' );
+
+//Changes to student CPT
+//Restrict Block
+function restrict_blocks_for_custom_post_type($settings, $post) {
+    if ($post->post_type == 'students') {
+        $settings['allowed_block_types'] = array();
+    }
+    return $settings;
+}
+add_filter('block_editor_settings', 'restrict_blocks_for_custom_post_type', 10, 2);
+
+//Changes the title in student to "add student name"
+function change_title_placeholder($title) {
+    $screen = get_current_screen();
+    if ($screen->post_type == 'students') {
+        $title = 'Add student name';
+    }
+    return $title;
+}
+add_filter('enter_title_here', 'change_title_placeholder');
