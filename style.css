@@ -401,6 +401,31 @@ h4,
 h5,
 h6 {
 	clear: both;
+	margin: 0.5em 0;
+}
+
+h1 {
+	font-size: 2.5rem;
+}
+
+h2 {
+	font-size: 2rem;
+}
+
+h3 {
+	font-size: 2rem;
+}
+
+h1 {
+	font-size: 2.5rem;
+}
+
+h2 {
+	font-size: 2rem;
+}
+
+h3 {
+	font-size: 2rem;
 }
 
 h1 {
@@ -470,7 +495,9 @@ big {
 /* Elements
 --------------------------------------------- */
 body {
-	background: rgba(9, 211, 204, 0.431372549);
+
+	background: #fce2e2;
+
 }
 
 hr {
