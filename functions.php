@@ -192,3 +192,12 @@ function fwd_excerpt_more( $more) {
 }
 add_filter( 'excerpt_more', 'fwd_excerpt_more');
 
+//Changes the title in staff to "add staff name"
+function change_staff_title_placeholder( $title ) {
+    $screen = get_current_screen();
+    if ( $screen->post_type == 'staff' ) {
+        $title = 'Add staff name';
+    }
+    return $title;
+}
+add_filter( 'enter_title_here', 'change_staff_title_placeholder' );

@@ -111,3 +111,4 @@ function add_staff_taxonomy_terms() {
     );
 }
 add_action( 'init', 'add_staff_taxonomy_terms', 10 );
+
