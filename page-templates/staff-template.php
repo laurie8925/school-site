@@ -1,55 +1,77 @@
 <?php
 /* Template Name: Staff Template */
-if (have_posts()) {
-    while (have_posts()) {
-        the_post();
-        // Display paragraph of text
-        echo '<p>This is some introductory text before displaying staff members.</p>';
 
-        // Query and display staff members for Faculty term
-        $faculty_query = new WP_Query(array(
-            'post_type' => 'staff',
-            'tax_query' => array(
-                array(
-                    'taxonomy' => 'staff_category',
-                    'field' => 'slug',
-                    'terms' => 'faculty',
-                ),
-            ),
-        ));
-        if ($faculty_query->have_posts()) {
-            echo '<section class="staff-section"><h2>' . esc_html__('Faculty', 'School Project') . '</h2>';
-            while ($faculty_query->have_posts()) {
-                $faculty_query->the_post();
-                echo '<h3>' . get_the_title() . '</h3>';
-                echo '<p>' . get_field('short_biography') . '</p>';
-                // Display additional information for Faculty
-                echo '<p>Courses Teaching: ' . get_field('courses_teaching') . '</p>';
-                echo '<p>Instructor Website: <a href="' . get_field('instructor_website') . '">' . get_field('instructor_website') . '</a></p>';
-            }
-            wp_reset_postdata();
-            echo '</section>';
-        }
 
-        // Query and display staff members for Administrative term
-        $admin_query = new WP_Query(array(
-            'post_type' => 'staff',
-            'tax_query' => array(
-                array(
-                    'taxonomy' => 'staff_category',
-                    'field' => 'slug',
-                    'terms' => 'administrative',
-                ),
-            ),
-        ));
-        if ($admin_query->have_posts()) {
-            echo '<h2>Administrative</h2>';
-            while ($admin_query->have_posts()) {
-                $admin_query->the_post();
-                echo '<h3>' . get_the_title() . '</h3>';
-                echo '<p>' . get_field('short_biography') . '</p>';
+// Query and display staff members for Faculty term
+$args = array(
+    'post_type'      => 'staff',
+    'posts_per_page' => -1,
+    'orderby'            => 'title',
+    'order'              => 'ASC',
+    'tax_query'      => array(
+        array(
+            'taxonomy' => 'staff_category',
+            'field'    => 'slug',
+            'terms'    => 'administrative'
+        ),
+    ),
+);
+$adam_query = new WP_Query($args);
+
+if ($adam_query->have_posts()) {
+    echo '<section class="staff-section"><h2 id="' . esc_attr(get_the_ID()) . '">' . esc_html__('Administrative', 'School Project') . '</h2>';
+    while ($adam_query->have_posts()) {
+        $adam_query->the_post();
+
+
+        if (function_exists('get_field')) {
+            if (get_field('staff_biography')) {
+                echo '<h3 id="' . esc_attr(get_the_ID()) . '">' . esc_html(get_the_title()) . '</h3>';
+                the_field('staff_biography');
+                if (get_field('courses')) {
+                    echo '<p>Courses Teaching: ' . get_field('courses') . '</p>';
+                }
+
+                // links
+                $link = get_field('instructor_website');
+                if ($link) : ?> <!--link statement-->
+                    <a class="button" href="<?php echo esc_url($link); ?>"> <?php echo esc_html('Visit Instructor Website', 'School Project'); ?></a>
+<?php endif; //link if stamtement
             }
-            wp_reset_postdata();
         }
     }
+    wp_reset_postdata();
+    echo '</section>';
+}
+
+// Query and display staff members for Faculty term
+$faculty_query = new WP_Query(array(
+    'post_type' => 'staff',
+    'tax_query' => array(
+        array(
+            'taxonomy' => 'staff_category',
+            'field' => 'slug',
+            'terms' => 'faculty',
+        ),
+    ),
+));
+if ($faculty_query->have_posts()) {
+    echo '<section class="staff-section"><h2 id="' . esc_attr(get_the_ID()) . '">' . esc_html__('Faculty', 'School Project') . '</h2>';
+    while ($faculty_query->have_posts()) {
+        $faculty_query->the_post();
+        echo '<h3 id="' . esc_attr(get_the_ID()) . '">' . get_the_title() . '</h3>';
+        echo '<p>' . get_field('staff_biography') . '</p>';
+        // Display additional information for Faculty
+        if (get_field('courses')) {
+            echo '<p>Courses Teaching: ' . get_field('courses') . '</p>';
+        }
+        $link = get_field('instructor_website');
+        if ($link) {
+            echo '<a class="button" href="' . esc_url($link) . '"> ' . esc_html('Visit Instructor Website', 'School Project') . '</a>';
+
+            // echo '<p>Instructor Website: <a href="' . get_field('instructor_website') . '">' . get_field('instructor_website') . '</a></p>';
+        }
+    }
+    wp_reset_postdata();
+    echo '</section>';
 }

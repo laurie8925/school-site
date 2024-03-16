@@ -22,56 +22,7 @@ get_header();
 	</header><!-- .page-header -->
 
 	<!-- post content -->
-	<?php
-
-	$terms = get_terms(
-		array(
-			'taxonomy' => 'staff_category',
-		)
-	);
-
-	if ($terms && !is_wp_error($terms)) {
-		foreach ($terms as $term) {
-			$args = array(
-				'post_type'      => 'staff',
-				'posts_per_page' => -1,
-				'orderby'            => 'title',
-				'order'              => 'ASC',
-				'tax_query'      => array(
-					array(
-						'taxonomy' => 'staff_category',
-						'field'    => 'slug',
-						'terms'    => $term->slug
-					),
-				),
-			);
-			$query = new WP_Query($args);
-
-			if ($query->have_posts()) {
-				echo '<section class="staff-section"><h2 id="' . esc_attr(get_the_ID()) . '">' . esc_html__($term->name) . '</h2>';
-				while ($query->have_posts()) {
-					$query->the_post();
-
-
-					if (function_exists('get_field')) {
-						if (get_field('staff_biography')) {
-							echo '<h3 id="' . esc_attr(get_the_ID()) . '">' . esc_html(get_the_title()) . '</h3>';
-							the_field('staff_biography');
-							// links
-							$link = get_field('instructor_website');
-							if ($link) : ?> <!--link statement-->
-								<a class="button" href="<?php echo esc_url($link); ?>"> <?php echo esc_html('Visit Instructor Website', 'School Project'); ?></a>
-	<?php endif; //link if stamtement
-						}
-					}
-				}
-				wp_reset_postdata();
-				echo '</section>';
-			}
-		}
-	}
-
-	?>
+	<?php get_template_part('page-templates/staff-template'); ?>
 
 
 </main><!-- #main -->
