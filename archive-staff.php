@@ -60,8 +60,8 @@ get_header();
 							// links
 							$link = get_field('instructor_website');
 							if ($link) : ?> <!--link statement-->
-								<a class="button" href="<?php echo esc_url($link); ?>"> <?php echo esc_html('Visit Instructor Website', 'School Project'); ?><a>
-			<?php endif; //link if stamtement
+								<a class="button" href="<?php echo esc_url($link); ?>"> <?php echo esc_html('Visit Instructor Website', 'School Project'); ?></a>
+	<?php endif; //link if stamtement
 						}
 					}
 				}
@@ -71,7 +71,7 @@ get_header();
 		}
 	}
 
-			?>
+	?>
 
 
 </main><!-- #main -->
