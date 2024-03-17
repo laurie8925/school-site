@@ -12,6 +12,20 @@
 ?>
 
 	<footer id="colophon" class="site-footer">
+	<div class="footer-logo">
+        <?php
+        // Get the ACF image field value
+        $footer_logo = get_field('footer_image', 'option');
+
+        // Check if the logo exists
+        if ($footer_logo) {
+            echo '<a href="' . esc_url(home_url('/')) . '"><img src="' . esc_url($footer_logo['url']) . '" alt="' . esc_attr(get_bloginfo('name')) . '"></a>';
+        } else {
+            echo '<a href="' . esc_url(home_url('/')) . '">' . get_bloginfo('name') . '</a>';
+        }
+        ?>
+    </div>
+	
 		<div class="site-info">
 			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'school-project' ) ); ?>">
 				<?php
