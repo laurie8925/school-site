@@ -1,4 +1,7 @@
 <?php
+/*
+Template Name: Student Template
+*/
 
 $terms = get_terms(
     array(
