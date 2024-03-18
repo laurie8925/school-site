@@ -36,7 +36,6 @@
 		<?php
 		if (is_single()) {
 			the_content();
-			echo get_content();
 		} else {
 			the_excerpt();
 		}
