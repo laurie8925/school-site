@@ -51,7 +51,9 @@ function school_project_setup()
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus(
 		array(
-			'menu-1' => esc_html__('Primary', 'school-project'),
+			// 'menu-1' => esc_html__('Primary', 'school-project'),
+			'header-menu' => esc_html__('Header Menu Location', 'school-project'),
+			'footer-menu' => esc_html__('Footer Menu Location', 'school-project')
 		)
 	);
 
@@ -237,3 +239,15 @@ function change_title_placeholder($title)
 	return $title;
 }
 add_filter('enter_title_here', 'change_title_placeholder');
+
+// AOS Animation
+function enqueue_aos_scripts() {
+    if (is_singular('post')) {
+        // Enqueue AOS CSS file
+        wp_enqueue_style('aos-style', get_template_directory_uri() . '/aos/aos.css');
+        
+        // Enqueue AOS JavaScript file
+        wp_enqueue_script('aos-script', get_template_directory_uri() . '/aos/aos.js', array('jquery'), null, true);
+    }
+}
+add_action('wp_enqueue_scripts', 'enqueue_aos_scripts');

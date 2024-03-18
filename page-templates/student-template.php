@@ -46,7 +46,13 @@ if ($terms && !is_wp_error($terms)) {
                     //     echo '<a class="button" href="' . esc_url($link) . '"> ' . esc_html(get_the_title()) . ' portfolio </a>';
                     // }
 
-                    echo '<p>Sepcality: ' . esc_html__($term->name) . '</p>';
+                    $term_link = get_term_link($term); // Get the link to the term's archive page
+
+                        if (!is_wp_error($term_link)) { // Check if the link is valid
+                            echo '<p>Specialty: <a href="' . esc_url($term_link) . '">' . esc_html__($term->name) . '</a></p>';
+                        } else {
+                            echo '<p>Specialty: ' . esc_html__($term->name) . '</p>';
+                        }
                 }
             }
             wp_reset_postdata();
