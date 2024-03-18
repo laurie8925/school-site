@@ -1,8 +1,7 @@
 <?php
 /* Template Name: Staff Template */
 
-
-// Query and display staff members for Faculty term
+// Query and display staff members for Administrative term
 $args = array(
     'post_type'      => 'staff',
     'posts_per_page' => -1,
@@ -23,6 +22,9 @@ if ($adam_query->have_posts()) {
     while ($adam_query->have_posts()) {
         $adam_query->the_post();
 
+        if (has_post_thumbnail()) {
+            the_post_thumbnail('thumbnail');
+        }
 
         if (function_exists('get_field')) {
             if (get_field('staff_biography')) {
@@ -36,7 +38,7 @@ if ($adam_query->have_posts()) {
                 $link = get_field('instructor_website');
                 if ($link) : ?> <!--link statement-->
                     <a class="button" href="<?php echo esc_url($link); ?>"> <?php echo esc_html('Visit Instructor Website', 'School Project'); ?></a>
-<?php endif; //link if stamtement
+                <?php endif; //link if statement
             }
         }
     }
@@ -59,6 +61,11 @@ if ($faculty_query->have_posts()) {
     echo '<section class="staff-section"><h2 id="' . esc_attr(get_the_ID()) . '">' . esc_html__('Faculty', 'School Project') . '</h2>';
     while ($faculty_query->have_posts()) {
         $faculty_query->the_post();
+
+        if (has_post_thumbnail()) {
+            the_post_thumbnail('thumbnail');
+        }
+
         echo '<h3 id="' . esc_attr(get_the_ID()) . '">' . get_the_title() . '</h3>';
         echo '<p>' . get_field('staff_biography') . '</p>';
         // Display additional information for Faculty
@@ -75,3 +82,4 @@ if ($faculty_query->have_posts()) {
     wp_reset_postdata();
     echo '</section>';
 }
+?>
