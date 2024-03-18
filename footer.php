@@ -25,6 +25,9 @@
         }
         ?>
     </div>
+	<nav id="footer-navigation" class="footer-navigation">
+			<?php wp_nav_menu( array( 'theme_location' => 'footer-menu') ); ?>
+		</nav>
 	
 		<div class="site-info">
 			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'school-project' ) ); ?>">
