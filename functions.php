@@ -156,6 +156,21 @@ function school_project_scripts()
 }
 add_action('wp_enqueue_scripts', 'school_project_scripts');
 
+
+//aos animation
+function enqueue_aos_scripts()
+{
+	// Check if it's a single post of the post type 'post'
+
+	// Enqueue AOS CSS
+	wp_enqueue_style('school-aos-css', get_template_directory_uri() . '/assets/aos.css', array(), "1.0.0");
+
+	// Enqueue AOS JS
+	wp_enqueue_script('school-aos-js', get_template_directory_uri() . '/assets/aos.js', array(), false, true);
+	wp_enqueue_script('school-aos-init-js', get_template_directory_uri() . '/assets/init.js', array("school-aos-js"), false, true);
+}
+add_action('wp_enqueue_scripts', 'enqueue_aos_scripts');
+
 /**
  * Implement the Custom Header feature.
  */
@@ -239,15 +254,3 @@ function change_title_placeholder($title)
 	return $title;
 }
 add_filter('enter_title_here', 'change_title_placeholder');
-
-// AOS Animation
-function enqueue_aos_scripts() {
-    if (is_singular('post')) {
-        // Enqueue AOS CSS file
-        wp_enqueue_style('aos-style', get_template_directory_uri() . '/aos/aos.css');
-        
-        // Enqueue AOS JavaScript file
-        wp_enqueue_script('aos-script', get_template_directory_uri() . '/aos/aos.js', array('jquery'), null, true);
-    }
-}
-add_action('wp_enqueue_scripts', 'enqueue_aos_scripts');
