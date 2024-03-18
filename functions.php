@@ -200,7 +200,7 @@ add_filter('excerpt_length', 'fwd_excerpt_length', 999);
 
 function fwd_excerpt_more($more)
 {
-	$more = '...<a href="' . esc_url(get_permalink()) . '">Read More about Student</a>';
+	$more = '...';
 	return $more;
 }
 add_filter('excerpt_more', 'fwd_excerpt_more');

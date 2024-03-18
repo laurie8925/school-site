@@ -38,11 +38,13 @@ if ($terms && !is_wp_error($terms)) {
                     }
                     the_post_thumbnail('large');
                     the_excerpt();
+                    echo '<a href="' . esc_url(get_permalink()) . '">Read More about the Student</a>';
+
                     // links
-                    $link = get_field('portfolio');
-                    if ($link) {
-                        echo '<a class="button" href="' . esc_url($link) . '"> ' . esc_html(get_the_title()) . ' portfolio </a>';
-                    }
+                    // $link = get_field('portfolio');
+                    // if ($link) {
+                    //     echo '<a class="button" href="' . esc_url($link) . '"> ' . esc_html(get_the_title()) . ' portfolio </a>';
+                    // }
 
                     echo '<p>Sepcality: ' . esc_html__($term->name) . '</p>';
                 }
