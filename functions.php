@@ -237,3 +237,15 @@ function change_title_placeholder($title)
 	return $title;
 }
 add_filter('enter_title_here', 'change_title_placeholder');
+
+// AOS Animation
+function enqueue_aos_scripts() {
+    if (is_singular('post')) {
+        // Enqueue AOS CSS file
+        wp_enqueue_style('aos-style', get_template_directory_uri() . '/aos/aos.css');
+        
+        // Enqueue AOS JavaScript file
+        wp_enqueue_script('aos-script', get_template_directory_uri() . '/aos/aos.js', array('jquery'), null, true);
+    }
+}
+add_action('wp_enqueue_scripts', 'enqueue_aos_scripts');
