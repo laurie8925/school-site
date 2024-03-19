@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Template part for displaying Student posts
  *
@@ -36,7 +37,7 @@
 		the_content();
 
 		// Display related students
-		$terms = wp_get_post_terms(get_the_ID(), 'custom_taxonomy_student');
+		$terms = wp_get_post_terms(get_the_ID(), 'student_category');
 
 		if ($terms && !is_wp_error($terms)) {
 			$term_ids = wp_list_pluck($terms, 'term_id');
@@ -46,7 +47,7 @@
 				'posts_per_page' => -1,
 				'tax_query' => array(
 					array(
-						'taxonomy' => 'custom_taxonomy_student',
+						'taxonomy' => 'student_category',
 						'field' => 'id',
 						'terms' => $term_ids,
 						'operator' => 'IN'
