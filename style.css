@@ -107,7 +107,7 @@ hr {
  * 2. Correct the odd `em` font sizing in all browsers.
  */
 pre {
-	font-family: monospace, monospace;
+	font-family: "Open Sans", sans-serif;
 	font-size: 1em;
 }
 
@@ -389,7 +389,7 @@ select,
 optgroup,
 textarea {
 	color: #404040;
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+	font-family: "Open Sans", Helvetica, Arial, sans-serif;
 	font-size: 1rem;
 	line-height: 1.5;
 }
@@ -405,31 +405,20 @@ h6 {
 }
 
 h1 {
-	font-size: 2.5rem;
+	font-size: 2em;
 }
 
 h2 {
-	font-size: 2rem;
+	font-size: 1.5em;
 }
 
-h3 {
-	font-size: 2rem;
-}
-
-h1 {
-	font-size: 2.5rem;
-}
-
-h2 {
-	font-size: 2rem;
-}
-
-h3 {
-	font-size: 2rem;
+h3,
+h4 {
+	font-size: 1.25em;
 }
 
 p {
-	margin-bottom: 1.5em;
+	margin: 0 0 1.5em;
 }
 
 dfn,
@@ -496,6 +485,7 @@ hr {
 ul,
 ol {
 	margin: 0 0 1.5em 3em;
+	padding: 0;
 }
 
 ul {
@@ -541,19 +531,56 @@ table {
 	width: 100%;
 }
 
+.schedule {
+	border-collapse: collapse;
+}
+
+.schedule tr {
+	background-color: #eee;
+}
+
+.schedule tbody tr:nth-of-type(odd) {
+	background-color: #fff;
+}
+
+.schedule th {
+	text-align: left;
+}
+
+.schedule th,
+.schedule td {
+	display: block;
+}
+
+.schedule tr {
+	display: block;
+	padding: 1rem;
+}
+
+@media only screen and (min-width: 37.5em) {
+	.schedule th,
+	.schedule td {
+		display: table-cell;
+		width: 33.33%;
+		padding: 2rem;
+	}
+	.schedule tr {
+		display: table-row;
+	}
+}
 /* Links
 --------------------------------------------- */
 a {
-	color: #4169e1;
+	color: #003c71;
+	text-decoration: none;
+	font-weight: 700;
 }
 a:visited {
-	color: #800080;
+	color: #003c71;
 }
 a:hover, a:focus, a:active {
-	color: #191970;
-}
-a:focus {
-	outline: thin dotted;
+	color: #305c9f;
+	text-decoration: underline;
 }
 a:hover, a:active {
 	outline: 0;
@@ -640,6 +667,38 @@ textarea {
 /*--------------------------------------------------------------
 # Layouts
 --------------------------------------------------------------*/
+.site {
+	max-width: 2200px;
+	margin: 0 auto;
+	overflow: hidden;
+	display: grid;
+	grid-template-columns: 1fr minmax(0, 1000px) 1fr;
+	grid-template-areas: "header header header" ". main ." ". sidebar ." "footer footer footer";
+}
+
+.site-header {
+	grid-area: header;
+}
+
+.site-main {
+	grid-area: main;
+	overflow: hidden; /* Resolves issue with <pre> elements forcing full width. */
+}
+
+.widget-area {
+	grid-area: sidebar;
+}
+
+.site-footer {
+	grid-area: footer;
+}
+
+.no-sidebar .site {
+	display: grid;
+	grid-template-columns: auto;
+	grid-template-areas: "header" "main" "footer";
+}
+
 /*--------------------------------------------------------------
 # Components
 --------------------------------------------------------------*/
@@ -648,12 +707,17 @@ textarea {
 .main-navigation {
 	display: block;
 	width: 100%;
+	position: absolute;
+	top: 52px;
+	right: 0;
+	z-index: 1000;
 }
 .main-navigation ul {
 	display: none;
 	list-style: none;
 	margin: 0;
 	padding-left: 0;
+	background-color: #000000;
 }
 .main-navigation ul ul {
 	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
@@ -666,6 +730,9 @@ textarea {
 .main-navigation ul ul ul {
 	left: -999em;
 	top: 0;
+}
+.main-navigation ul ul li {
+	position: relative;
 }
 .main-navigation ul ul li:hover > ul, .main-navigation ul ul li.focus > ul {
 	display: block;
@@ -684,6 +751,8 @@ textarea {
 .main-navigation a {
 	display: block;
 	text-decoration: none;
+	color: #fff;
+	padding: 0 1rem;
 }
 /* Small menu. */
 .menu-toggle,
@@ -764,6 +833,10 @@ textarea {
 }
 .widget select {
 	max-width: 100%;
+}
+
+.widget-title {
+	font-size: 1.25rem;
 }
 
 /* Media
@@ -851,6 +924,55 @@ textarea {
 	display: block;
 }
 
+/* Header
+--------------------------------------------- */
+.site-header {
+	width: 100%;
+	height: 55px;
+	background-color: #000000;
+	border-top: 3px solid #305c9f;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1000;
+}
+
+.admin-bar .site-header {
+	top: 46px;
+}
+
+@media screen and (min-width: 48.875em) {
+	.admin-bar .site-header {
+		top: 32px;
+	}
+}
+.site-header .site-title {
+	width: 200px;
+	font-size: 1.3em;
+	text-transform: uppercase;
+	margin: 0.4rem 1rem 0;
+}
+
+.site-header .site-title a {
+	display: block;
+	color: #fff;
+}
+
+.site-header .site-title a {
+	text-decoration: none;
+}
+
+@media screen and (min-width: 50em) {
+	.site-header {
+		display: grid;
+		grid-template-columns: 1fr minmax(auto, 12.5rem) minmax(auto, 50rem) 1fr;
+		align-items: center;
+	}
+	.site-header .site-title {
+		grid-column: 2/3;
+		margin: 0 1rem 0;
+	}
+}
 /*--------------------------------------------------------------
 # Plugins
 --------------------------------------------------------------*/

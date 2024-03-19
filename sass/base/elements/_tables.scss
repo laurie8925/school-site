@@ -2,3 +2,36 @@ table {
 	margin: 0 0 1.5em;
 	width: 100%;
 }
+
+// schedule 
+.schedule {
+	border-collapse: collapse;
+}
+.schedule tr {
+	background-color: #eee;
+}
+.schedule tbody tr:nth-of-type(odd) {
+	background-color: #fff;
+}
+.schedule th {
+	text-align: left;
+}
+.schedule th, 
+.schedule td {
+	display: block;
+}
+.schedule tr {
+	display: block;
+	padding: 1rem;
+}
+@media only screen and (min-width:37.5em) {
+	.schedule th, 
+	.schedule td {
+		display: table-cell;
+		width: 33.33%;
+		padding: 2rem;
+	}
+	.schedule tr {
+		display: table-row;
+	}
+}
