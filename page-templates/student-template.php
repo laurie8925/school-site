@@ -37,7 +37,8 @@ if ($terms && !is_wp_error($terms)) {
                 if (function_exists('get_field')) {
                     echo '<article class="student-container">';
                     if (get_field('short_biography')) {
-                        echo '<h2 id="' . esc_attr(get_the_ID()) . '"><a href="' . esc_url(get_permalink()) . '">' . esc_html(get_the_title()) . '</a></h2>';
+                        echo '<h2 id="' . esc_attr(get_the_ID()) . '">
+                        <a href="' . esc_url(get_permalink()) . '">' . esc_html(get_the_title()) . '</a></h2>';
                     }
                     the_post_thumbnail('student-blog');
 

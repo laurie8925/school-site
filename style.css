@@ -407,14 +407,30 @@ h6 {
 h1 {
 	font-size: 2em;
 }
+@media only screen and (min-width: 600px) {
+	h1 {
+		font-size: 2.5em;
+	}
+}
 
 h2 {
 	font-size: 1.5em;
+}
+@media only screen and (min-width: 600px) {
+	h2 {
+		font-size: 2em;
+	}
 }
 
 h3,
 h4 {
 	font-size: 1.25em;
+}
+@media only screen and (min-width: 600px) {
+	h3,
+	h4 {
+		font-size: 1.5em;
+	}
 }
 
 p {
@@ -1026,7 +1042,7 @@ textarea {
 	   object-fit: cover;
 }
 
-@media only screen and (min-width: 37.5em) {
+@media only screen and (min-width: 600px) {
 	.student-section {
 		display: flex;
 		flex-wrap: wrap;
@@ -1034,10 +1050,10 @@ textarea {
 	}
 	.student-container {
 		width: 45%;
-		margin: 0 0 3rem;
+		margin: 0 0 1.5rem;
 	}
 }
-@media only screen and (min-width: 56.25em) {
+@media only screen and (min-width: 900px) {
 	.student-container {
 		width: 30%;
 	}
@@ -1048,6 +1064,14 @@ textarea {
 	margin-left: 0;
 	margin-bottom: 1rem;
 }
+@media only screen and (min-width: 600px) {
+	.single-student .wp-post-image.alignright {
+		display: inline;
+		float: right;
+		margin-left: 1.5rem;
+		margin-bottom: none;
+	}
+}
 
 .single-student ul {
 	margin-left: 0;
@@ -1056,29 +1080,40 @@ textarea {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
-	padding-bottom: 1.5em;
+	padding-bottom: 1.5rem;
 }
 
-@media only screen and (min-width: 37.5em) {
-	.single-student .wp-post-image.alignright {
+.type-student .wp-post-image.alignleft {
+	display: block;
+	float: none;
+	margin-left: 0;
+	margin-bottom: 1rem;
+}
+@media only screen and (min-width: 600px) {
+	.type-student .wp-post-image.alignleft {
 		display: inline;
-		float: right;
-		margin-left: 1.5rem;
-		margin-bottom: 0;
+		float: left;
+		margin-right: 1.5rem;
+		margin-bottom: none;
 	}
 }
+
+.archive.tax-student_category article {
+	clear: both;
+	padding-top: 1em;
+}
+.archive.tax-student_category article:first-of-type {
+	padding-top: 0;
+}
+
 .portfolio-button {
 	box-sizing: border-box;
-	cursor: pointer;
 	display: inline-block;
 	text-align: center;
-	word-break: break-word;
 	background-color: #a42c8c;
-	border-radius: 9999px;
-	box-shadow: none;
-	text-decoration: none;
-	padding: calc(0.667em + 2px) calc(1.333em + 2px);
-	font-size: 1.125em;
+	border-radius: 500px;
+	padding: 0.667rem 1.333rem;
+	font-size: 1.15rem;
 	color: #fff;
 }
 .portfolio-button:visited {
