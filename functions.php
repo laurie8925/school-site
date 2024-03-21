@@ -57,6 +57,8 @@ function school_project_setup()
 		)
 	);
 
+	add_image_size('student-blog', 300, 200, true);
+
 	/*
 		* Switch default core markup for search form, comment form, and comments
 		* to output valid HTML5.
@@ -107,7 +109,6 @@ function school_project_setup()
 	add_theme_support('wp-block-styles');
 	add_theme_support('responsive-embeds');
 	add_theme_support('align-wide');
-	
 }
 add_action('after_setup_theme', 'school_project_setup');
 
