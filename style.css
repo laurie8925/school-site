@@ -704,92 +704,6 @@ textarea {
 --------------------------------------------------------------*/
 /* Navigation
 --------------------------------------------- */
-.main-navigation {
-	display: block;
-	width: 100%;
-	position: absolute;
-	top: 52px;
-	right: 0;
-	z-index: 1000;
-}
-.main-navigation ul {
-	display: none;
-	list-style: none;
-	margin: 0;
-	padding-left: 0;
-	background-color: #000000;
-}
-.main-navigation ul ul {
-	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-	float: left;
-	position: absolute;
-	top: 100%;
-	left: -999em;
-	z-index: 99999;
-}
-.main-navigation ul ul ul {
-	left: -999em;
-	top: 0;
-}
-.main-navigation ul ul li {
-	position: relative;
-}
-.main-navigation ul ul li:hover > ul, .main-navigation ul ul li.focus > ul {
-	display: block;
-	left: auto;
-}
-.main-navigation ul ul a {
-	width: 200px;
-}
-.main-navigation ul li:hover > ul,
-.main-navigation ul li.focus > ul {
-	left: auto;
-}
-.main-navigation li {
-	position: relative;
-}
-.main-navigation a {
-	display: block;
-	text-decoration: none;
-	color: #fff;
-	padding: 0 1rem;
-}
-/* Small menu. */
-.menu-toggle,
-.main-navigation.toggled ul {
-	display: block;
-}
-
-@media screen and (min-width: 37.5em) {
-	.menu-toggle {
-		display: none;
-	}
-	.main-navigation ul {
-		display: flex;
-	}
-}
-.site-main .comment-navigation,
-.site-main .posts-navigation,
-.site-main .post-navigation {
-	margin: 0 0 1.5em;
-}
-.comment-navigation .nav-links,
-.posts-navigation .nav-links,
-.post-navigation .nav-links {
-	display: flex;
-}
-.comment-navigation .nav-previous,
-.posts-navigation .nav-previous,
-.post-navigation .nav-previous {
-	flex: 1 0 50%;
-}
-.comment-navigation .nav-next,
-.posts-navigation .nav-next,
-.post-navigation .nav-next {
-	text-align: end;
-	flex: 1 0 50%;
-}
-
 /* Posts and pages
 --------------------------------------------- */
 .sticky {
@@ -926,53 +840,105 @@ textarea {
 
 /* Header
 --------------------------------------------- */
+/* Reset some default styles */
+body {
+	margin: 0;
+	padding: 0;
+	font-family: Arial, sans-serif;
+}
+
+/* Header styles */
 .site-header {
-	width: 100%;
-	height: 55px;
-	background-color: #000000;
-	border-top: 3px solid #305c9f;
-	position: fixed;
-	top: 0;
-	left: 0;
-	z-index: 1000;
+	background-color: #333; /* Change the color as needed */
+	color: #fff; /* Text color */
+	padding: 20px; /* Adjust padding as needed */
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%; /* Set header width to 100% */
 }
 
-.admin-bar .site-header {
-	top: 46px;
+.site-branding {
+	flex-grow: 1;
 }
 
-@media screen and (min-width: 48.875em) {
-	.admin-bar .site-header {
-		top: 32px;
-	}
-}
-.site-header .site-title {
-	width: 200px;
-	font-size: 1.3em;
-	text-transform: uppercase;
-	margin: 0.4rem 1rem 0;
+.site-title {
+	margin-bottom: 0;
 }
 
-.site-header .site-title a {
-	display: block;
-	color: #fff;
-}
-
-.site-header .site-title a {
+.site-title a, .site-title a:hover, .site-title a:visited {
+	color: #fff; /* Title link color */
 	text-decoration: none;
+	font-size: 36px; /* Adjust font size as needed */
+	/* You can also use other font properties like font-weight, font-style, etc. */
 }
 
-@media screen and (min-width: 50em) {
-	.site-header {
-		display: grid;
-		grid-template-columns: 1fr minmax(auto, 12.5rem) minmax(auto, 50rem) 1fr;
-		align-items: center;
-	}
-	.site-header .site-title {
-		grid-column: 2/3;
-		margin: 0 1rem 0;
-	}
+.site-description {
+	color: #fff; /* Description text color */
+	font-size: 14px; /* Adjust font size as needed */
 }
+
+.main-navigation {
+	text-align: center; /* Center align main navigation */
+}
+
+.main-navigation ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: inline-flex; /* Change display to inline-flex */
+	justify-content: center; /* Center align menu items */
+}
+
+.main-navigation li {
+	margin-right: 20px; /* Adjust spacing between menu items */
+	position: relative; /* Add position relative */
+}
+
+/* Hide sub-menus by default */
+.main-navigation ul ul {
+	display: none;
+	position: absolute;
+	top: 100%; /* Position below parent menu item */
+	left: 0;
+	background-color: #333; /* Background color of sub-menu */
+	min-width: 200px; /* Set minimum width of dropdown */
+	padding: 10px; /* Add padding to dropdown */
+	border-radius: 5px; /* Add border-radius to dropdown */
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add box shadow to dropdown */
+}
+
+/* Display sub-menus when parent item is hovered */
+.main-navigation li:hover > ul {
+	display: block;
+}
+
+.main-navigation ul ul li {
+	margin-right: 0; /* Remove margin between dropdown items */
+}
+
+.main-navigation ul ul a {
+	display: block; /* Make dropdown links full width */
+	padding: 8px 16px; /* Add padding to dropdown links */
+	color: #fff; /* Dropdown link color */
+	text-decoration: none;
+	font-size: 14px; /* Adjust font size as needed */
+}
+
+.main-navigation ul ul a:hover {
+	background-color: #555; /* Change background color on hover */
+}
+
+.main-navigation a, .main-navigation a:visited {
+	color: #fff; /* Menu link color */
+	text-decoration: none;
+	font-size: 16px; /* Adjust font size as needed */
+}
+
+.main-navigation a:hover {
+	text-decoration: underline;
+}
+
 /* Front Page
 --------------------------------------------- */
 /* Front Page
