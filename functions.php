@@ -58,6 +58,7 @@ function school_project_setup()
 	);
 
 	add_image_size('student-blog', 300, 200, true);
+	add_image_size('student-tax-blog', 200, 300, true);
 
 	/*
 		* Switch default core markup for search form, comment form, and comments
@@ -151,6 +152,14 @@ add_action('widgets_init', 'school_project_widgets_init');
  */
 function school_project_scripts()
 {
+	wp_enqueue_style(
+		'fwd-googlefonts', //unique handle
+		'https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap', //url to css file 
+		array(), //dependencies 
+		null, // Set null if loading multiple Google Fonts from their CDN
+		'all' //media
+	);
+
 	wp_enqueue_style('school-project-style', get_stylesheet_uri(), array(), _S_VERSION);
 	wp_style_add_data('school-project-style', 'rtl', 'replace');
 

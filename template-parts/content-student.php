@@ -29,18 +29,24 @@
 		<?php endif; ?>
 	</header><!-- .entry-header -->
 
-	<?php school_project_post_thumbnail(); ?>
+	<?php the_post_thumbnail('medium', array('class' => 'alignright')); ?>
 
 	<div class="entry-content">
 		<?php
 		// Display the student's content
 		the_content();
 
+		$link = get_field('portfolio');
+		if ($link) {
+			echo '<a class="portfolio-button" href="' . esc_url($link) . '"> ' . esc_html(get_the_title()) . ' portfolio </a>';
+		}
+
 		// Display related students
 		$terms = wp_get_post_terms(get_the_ID(), 'student_category');
 
 		if ($terms && !is_wp_error($terms)) {
 			$term_ids = wp_list_pluck($terms, 'term_id');
+			$term_names = wp_list_pluck($terms, 'name');
 			$args = array(
 				'post_type' => 'student',
 				'post_status' => 'publish',
@@ -58,7 +64,7 @@
 			$related_students = new WP_Query($args);
 
 			if ($related_students->have_posts()) {
-				echo '<h3>Related Students</h3>';
+				echo '<h3>Meet other '  . implode(', ', $term_names) .  ' Students:</h3>';
 				echo '<ul>';
 				while ($related_students->have_posts()) : $related_students->the_post();
 					echo '<li><a href="' . get_permalink() . '">' . get_the_title() . '</a></li>';
