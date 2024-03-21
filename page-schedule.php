@@ -44,7 +44,7 @@ get_header();
 	// Check if the repeater field value exists
 	if ($table_rows) {
 		echo '<table class=' . $field_name . '>';
-		echo '<caption>Weekly Course Schedule</caption>';
+		echo '<h2><caption>Weekly Course Schedule</caption></h2>';
 		// Output sub-field names at the top
 		echo '<tr>';
 		foreach ($table_rows[0] as $sub_field_name => $sub_field_value) {
