@@ -1066,6 +1066,57 @@ textarea {
 --------------------------------------------- */
 /* Footer
 --------------------------------------------- */
+/* Footer container */
+#colophon {
+	background-color: #343a40; /* Dark grey background */
+	padding: 20px;
+}
+
+/* Footer logo */
+.footer-logo img {
+	max-width: 200px; /* Adjust the max-width as needed */
+}
+
+/* Footer navigation */
+#footer-navigation {
+	margin-top: 20px;
+}
+
+#footer-navigation ul {
+	list-style: none;
+	padding: 0;
+}
+
+#footer-navigation ul li {
+	display: inline;
+	margin-right: 10px;
+}
+
+#footer-navigation ul li a {
+	color: #fff; /* White text color */
+	text-decoration: none;
+}
+
+#footer-navigation ul li a:hover {
+	text-decoration: underline;
+}
+
+/* Site info */
+.site-info {
+	margin-top: 20px;
+	font-size: 14px;
+	color: #fff; /* White text color */
+}
+
+.site-info a {
+	color: #fff; /* White text color */
+	text-decoration: none;
+}
+
+.site-info a:hover {
+	text-decoration: underline;
+}
+
 /*--------------------------------------------------------------
 # Plugins
 --------------------------------------------------------------*/
