@@ -840,7 +840,6 @@ textarea {
 
 /* Header
 --------------------------------------------- */
-/* Reset some default styles */
 body {
 	margin: 0;
 	padding: 0;
@@ -849,13 +848,13 @@ body {
 
 /* Header styles */
 .site-header {
-	background-color: #333; /* Change the color as needed */
-	color: #fff; /* Text color */
-	padding: 20px; /* Adjust padding as needed */
+	background-color: #333;
+	color: #fff;
+	padding: 20px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	width: 100%; /* Set header width to 100% */
+	width: 100%;
 }
 
 .site-branding {
@@ -867,72 +866,69 @@ body {
 }
 
 .site-title a, .site-title a:hover, .site-title a:visited {
-	color: #fff; /* Title link color */
+	color: #fff;
 	text-decoration: none;
-	font-size: 36px; /* Adjust font size as needed */
-	/* You can also use other font properties like font-weight, font-style, etc. */
+	font-size: 36px;
 }
 
 .site-description {
-	color: #fff; /* Description text color */
-	font-size: 14px; /* Adjust font size as needed */
+	color: #fff;
+	font-size: 14px;
 }
 
 .main-navigation {
-	text-align: center; /* Center align main navigation */
+	text-align: center;
 }
 
 .main-navigation ul {
 	list-style: none;
 	padding: 0;
 	margin: 0;
-	display: inline-flex; /* Change display to inline-flex */
-	justify-content: center; /* Center align menu items */
+	display: inline-flex;
+	justify-content: center;
 }
 
 .main-navigation li {
-	margin-right: 20px; /* Adjust spacing between menu items */
-	position: relative; /* Add position relative */
+	margin-right: 20px;
+	position: relative;
 }
 
-/* Hide sub-menus by default */
 .main-navigation ul ul {
 	display: none;
 	position: absolute;
-	top: 100%; /* Position below parent menu item */
+	top: 100%;
 	left: 0;
-	background-color: #333; /* Background color of sub-menu */
-	min-width: 200px; /* Set minimum width of dropdown */
-	padding: 10px; /* Add padding to dropdown */
-	border-radius: 5px; /* Add border-radius to dropdown */
-	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add box shadow to dropdown */
+	background-color: #333;
+	min-width: 200px;
+	padding: 10px;
+	border-radius: 5px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-/* Display sub-menus when parent item is hovered */
 .main-navigation li:hover > ul {
 	display: block;
 }
 
 .main-navigation ul ul li {
-	margin-right: 0; /* Remove margin between dropdown items */
+	margin-right: 0;
 }
 
 .main-navigation ul ul a {
-	display: block; /* Make dropdown links full width */
-	padding: 8px 16px; /* Add padding to dropdown links */
-	color: #fff; /* Dropdown link color */
+	display: block;
+	padding: 8px 16px;
+	color: #fff;
 	text-decoration: none;
-	font-size: 14px; /* Adjust font size as needed */
+	font-size: 14px;
 }
 
 .main-navigation ul ul a:hover {
-	background-color: #555; /* Change background color on hover */
+	background-color: #555;
 }
 
 .main-navigation a, .main-navigation a:visited {
-	color: #fff; /* Menu link color */
+	color: #fff;
 	text-decoration: none;
-	font-size: 16px; /* Adjust font size as needed */
+	font-size: 16px;
 }
 
 .main-navigation a:hover {
@@ -1083,8 +1079,40 @@ body {
 	text-decoration: underline;
 }
 
+.footer-logo a:visited {
+	color: #fff;
+}
+
 /* Footer
 --------------------------------------------- */
+/* Style for categories */
+.cat-links {
+	margin-right: 25px; /* Adjust margin as needed */
+	color: #333; /* Adjust color as needed */
+}
+
+/* Style for tags */
+.tags-links {
+	margin-right: 25px; /* Adjust margin as needed */
+	color: #333; /* Adjust color as needed */
+}
+
+/* Style for comments link */
+.comments-link {
+	display: inline-block;
+	margin-right: 25px; /* Adjust margin as needed */
+	color: #333; /* Adjust color as needed */
+}
+
+.comments-link a {
+	text-decoration: none;
+	color: #0073e6; /* Adjust color as needed */
+}
+
+.comments-link a:hover {
+	text-decoration: underline;
+}
+
 /*--------------------------------------------------------------
 # Plugins
 --------------------------------------------------------------*/

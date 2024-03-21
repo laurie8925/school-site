@@ -44,7 +44,7 @@
 				<p class="site-description"><?php echo $school_project_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
 			<?php endif; ?>
 		</div><!-- .site-branding -->
-
+				
 		<nav id="site-navigation" class="main-navigation">
 			
 			<?php
