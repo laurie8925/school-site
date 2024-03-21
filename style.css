@@ -704,92 +704,6 @@ textarea {
 --------------------------------------------------------------*/
 /* Navigation
 --------------------------------------------- */
-.main-navigation {
-	display: block;
-	width: 100%;
-	position: absolute;
-	top: 52px;
-	right: 0;
-	z-index: 1000;
-}
-.main-navigation ul {
-	display: none;
-	list-style: none;
-	margin: 0;
-	padding-left: 0;
-	background-color: #000000;
-}
-.main-navigation ul ul {
-	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-	float: left;
-	position: absolute;
-	top: 100%;
-	left: -999em;
-	z-index: 99999;
-}
-.main-navigation ul ul ul {
-	left: -999em;
-	top: 0;
-}
-.main-navigation ul ul li {
-	position: relative;
-}
-.main-navigation ul ul li:hover > ul, .main-navigation ul ul li.focus > ul {
-	display: block;
-	left: auto;
-}
-.main-navigation ul ul a {
-	width: 200px;
-}
-.main-navigation ul li:hover > ul,
-.main-navigation ul li.focus > ul {
-	left: auto;
-}
-.main-navigation li {
-	position: relative;
-}
-.main-navigation a {
-	display: block;
-	text-decoration: none;
-	color: #fff;
-	padding: 0 1rem;
-}
-/* Small menu. */
-.menu-toggle,
-.main-navigation.toggled ul {
-	display: block;
-}
-
-@media screen and (min-width: 37.5em) {
-	.menu-toggle {
-		display: none;
-	}
-	.main-navigation ul {
-		display: flex;
-	}
-}
-.site-main .comment-navigation,
-.site-main .posts-navigation,
-.site-main .post-navigation {
-	margin: 0 0 1.5em;
-}
-.comment-navigation .nav-links,
-.posts-navigation .nav-links,
-.post-navigation .nav-links {
-	display: flex;
-}
-.comment-navigation .nav-previous,
-.posts-navigation .nav-previous,
-.post-navigation .nav-previous {
-	flex: 1 0 50%;
-}
-.comment-navigation .nav-next,
-.posts-navigation .nav-next,
-.post-navigation .nav-next {
-	text-align: end;
-	flex: 1 0 50%;
-}
-
 /* Posts and pages
 --------------------------------------------- */
 .sticky {
@@ -926,57 +840,279 @@ textarea {
 
 /* Header
 --------------------------------------------- */
+body {
+	margin: 0;
+	padding: 0;
+	font-family: Arial, sans-serif;
+}
+
+/* Header styles */
 .site-header {
-	width: 100%;
-	height: 55px;
-	background-color: #000000;
-	border-top: 3px solid #305c9f;
-	position: fixed;
-	top: 0;
-	left: 0;
-	z-index: 1000;
-}
-
-.admin-bar .site-header {
-	top: 46px;
-}
-
-@media screen and (min-width: 48.875em) {
-	.admin-bar .site-header {
-		top: 32px;
-	}
-}
-.site-header .site-title {
-	width: 200px;
-	font-size: 1.3em;
-	text-transform: uppercase;
-	margin: 0.4rem 1rem 0;
-}
-
-.site-header .site-title a {
-	display: block;
+	background-color: #333;
 	color: #fff;
+	padding: 20px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
 }
 
-.site-header .site-title a {
+.site-branding {
+	flex-grow: 1;
+}
+
+.site-title {
+	margin-bottom: 0;
+}
+
+.site-title a, .site-title a:hover, .site-title a:visited {
+	color: #fff;
+	text-decoration: none;
+	font-size: 36px;
+}
+
+.site-description {
+	color: #fff;
+	font-size: 14px;
+}
+
+.main-navigation {
+	text-align: center;
+}
+
+.main-navigation ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: inline-flex;
+	justify-content: center;
+}
+
+.main-navigation li {
+	margin-right: 20px;
+	position: relative;
+}
+
+.main-navigation ul ul {
+	display: none;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	background-color: #333;
+	min-width: 200px;
+	padding: 10px;
+	border-radius: 5px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.main-navigation li:hover > ul {
+	display: block;
+}
+
+.main-navigation ul ul li {
+	margin-right: 0;
+}
+
+.main-navigation ul ul a {
+	display: block;
+	padding: 8px 16px;
+	color: #fff;
+	text-decoration: none;
+	font-size: 14px;
+}
+
+.main-navigation ul ul a:hover {
+	background-color: #555;
+}
+
+.main-navigation a, .main-navigation a:visited {
+	color: #fff;
+	text-decoration: none;
+	font-size: 16px;
+}
+
+.main-navigation a:hover {
+	text-decoration: underline;
+}
+
+/* Front Page
+--------------------------------------------- */
+/* Front Page
+--------------------------------------------- */
+.home-blog {
+	margin: 20px;
+}
+
+.home-blog h2 {
+	font-size: 24px;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+
+.home-blog article {
+	display: inline-flex;
+	flex-direction: column;
+	margin-bottom: 20px;
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 20px;
+}
+
+.home-blog article:last-child {
+	border-bottom: none;
+}
+
+.home-blog article h3 a {
+	font-size: 20px;
+	color: #ffffff;
 	text-decoration: none;
 }
 
-@media screen and (min-width: 50em) {
-	.site-header {
-		display: grid;
-		grid-template-columns: 1fr minmax(auto, 12.5rem) minmax(auto, 50rem) 1fr;
-		align-items: center;
+.home-blog article h3 a:hover {
+	color: #ff6347;
+}
+
+.home-blog article p {
+	font-size: 16px;
+	line-height: 1.6;
+	margin-bottom: 10px; /* Adjust spacing between title and excerpt */
+}
+
+.home-blog article img {
+	width: 100%; /* Ensure images take full width of their container */
+}
+
+.all-news-btn:hover {
+	text-decoration: underline;
+}
+
+.blog-post {
+	position: relative;
+	display: inline-block;
+}
+
+.overlay {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%; /* Occupy the entire width of the blog post */
+	background-color: rgba(0, 0, 0, 0.5); /* Adjust the opacity as needed */
+	color: white;
+	padding: 10px;
+	box-sizing: border-box; /* Include padding in the width */
+}
+
+.overlay h3 {
+	margin: 0;
+}
+
+.overlay h3 {
+	margin: 0;
+}
+
+/* Adjust styles for smaller screens */
+@media screen and (max-width: 768px) {
+	.home-blog h2 {
+		font-size: 20px;
 	}
-	.site-header .site-title {
-		grid-column: 2/3;
-		margin: 0 1rem 0;
+	.home-blog article {
+		width: 100%;
+	}
+	.home-blog article h3 a {
+		font-size: 18px;
+	}
+	.home-blog article p {
+		font-size: 14px;
 	}
 }
-/* Front Page
+/* Staff Page
 --------------------------------------------- */
-/* Front Page
+/* Footer
 --------------------------------------------- */
+/* Footer container */
+#colophon {
+	background-color: #343a40; /* Dark grey background */
+	padding: 20px;
+}
+
+/* Footer logo */
+.footer-logo img {
+	max-width: 200px; /* Adjust the max-width as needed */
+}
+
+/* Footer navigation */
+#footer-navigation {
+	margin-top: 20px;
+}
+
+#footer-navigation ul {
+	list-style: none;
+	padding: 0;
+}
+
+#footer-navigation ul li {
+	display: inline;
+	margin-right: 10px;
+}
+
+#footer-navigation ul li a {
+	color: #fff; /* White text color */
+	text-decoration: none;
+}
+
+#footer-navigation ul li a:hover {
+	text-decoration: underline;
+}
+
+/* Site info */
+.site-info {
+	margin-top: 20px;
+	font-size: 14px;
+	color: #fff; /* White text color */
+}
+
+.site-info a {
+	color: #fff; /* White text color */
+	text-decoration: none;
+}
+
+.site-info a:hover {
+	text-decoration: underline;
+}
+
+.footer-logo a:visited {
+	color: #fff;
+}
+
+/* Footer
+--------------------------------------------- */
+/* Style for categories */
+.cat-links {
+	margin-right: 25px; /* Adjust margin as needed */
+	color: #333; /* Adjust color as needed */
+}
+
+/* Style for tags */
+.tags-links {
+	margin-right: 25px; /* Adjust margin as needed */
+	color: #333; /* Adjust color as needed */
+}
+
+/* Style for comments link */
+.comments-link {
+	display: inline-block;
+	margin-right: 25px; /* Adjust margin as needed */
+	color: #333; /* Adjust color as needed */
+}
+
+.comments-link a {
+	text-decoration: none;
+	color: #0073e6; /* Adjust color as needed */
+}
+
+.comments-link a:hover {
+	text-decoration: underline;
+}
+
 /*--------------------------------------------------------------
 # Plugins
 --------------------------------------------------------------*/
