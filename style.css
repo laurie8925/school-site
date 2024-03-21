@@ -391,7 +391,7 @@ textarea {
 	color: #404040;
 	font-family: "Open Sans", Helvetica, Arial, sans-serif;
 	font-size: 1rem;
-	line-height: 1.5;
+	line-height: 1.8;
 }
 
 h1,
@@ -977,6 +977,34 @@ textarea {
 --------------------------------------------- */
 /* Front Page
 --------------------------------------------- */
+.student-container {
+	max-width: 300px;
+	margin: 0 auto;
+}
+
+.student-container img {
+	width: 300px;
+	height: 200px;
+	-o-object-fit: cover;
+	   object-fit: cover;
+}
+
+@media only screen and (min-width: 37.5em) {
+	.student-section {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-around;
+	}
+	.student-container {
+		width: 45%;
+		margin: 0 0 3rem;
+	}
+}
+@media only screen and (min-width: 56.25em) {
+	.student-container {
+		width: 30%;
+	}
+}
 /*--------------------------------------------------------------
 # Plugins
 --------------------------------------------------------------*/
