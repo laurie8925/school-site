@@ -977,6 +977,91 @@ textarea {
 --------------------------------------------- */
 /* Front Page
 --------------------------------------------- */
+.home-blog {
+	margin: 20px;
+}
+
+.home-blog h2 {
+	font-size: 24px;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+
+.home-blog article {
+	display: inline-flex;
+	flex-direction: column;
+	margin-bottom: 20px;
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 20px;
+}
+
+.home-blog article:last-child {
+	border-bottom: none;
+}
+
+.home-blog article h3 a {
+	font-size: 20px;
+	color: #ffffff;
+	text-decoration: none;
+}
+
+.home-blog article h3 a:hover {
+	color: #ff6347;
+}
+
+.home-blog article p {
+	font-size: 16px;
+	line-height: 1.6;
+	margin-bottom: 10px; /* Adjust spacing between title and excerpt */
+}
+
+.home-blog article img {
+	width: 100%; /* Ensure images take full width of their container */
+}
+
+.all-news-btn:hover {
+	text-decoration: underline;
+}
+
+.blog-post {
+	position: relative;
+	display: inline-block;
+}
+
+.overlay {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%; /* Occupy the entire width of the blog post */
+	background-color: rgba(0, 0, 0, 0.5); /* Adjust the opacity as needed */
+	color: white;
+	padding: 10px;
+	box-sizing: border-box; /* Include padding in the width */
+}
+
+.overlay h3 {
+	margin: 0;
+}
+
+.overlay h3 {
+	margin: 0;
+}
+
+/* Adjust styles for smaller screens */
+@media screen and (max-width: 768px) {
+	.home-blog h2 {
+		font-size: 20px;
+	}
+	.home-blog article {
+		width: 100%;
+	}
+	.home-blog article h3 a {
+		font-size: 18px;
+	}
+	.home-blog article p {
+		font-size: 14px;
+	}
+}
 /*--------------------------------------------------------------
 # Plugins
 --------------------------------------------------------------*/
