@@ -4,7 +4,7 @@
 
 	img[class*="wp-image-"] {
 
-		@include center-block;
+		@include center-block; //this is a mixin
 	}
 
 	.wp-caption-text {
