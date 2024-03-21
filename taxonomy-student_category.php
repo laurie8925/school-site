@@ -25,7 +25,7 @@ get_header();
             the_post();
         ?>
 
-            <article>
+            <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
                 <a href="<?php the_permalink() ?>">
                     <h2><?php the_title(); ?></h2>
                     <?php the_post_thumbnail('large'); ?>

@@ -1,0 +1,27 @@
+/* Style for categories */
+.cat-links {
+    margin-right: 25px; /* Adjust margin as needed */
+    color: #333; /* Adjust color as needed */
+}
+
+/* Style for tags */
+.tags-links {
+    margin-right: 25px; /* Adjust margin as needed */
+    color: #333; /* Adjust color as needed */
+}
+
+/* Style for comments link */
+.comments-link {
+    display: inline-block;
+    margin-right: 25px; /* Adjust margin as needed */
+    color: #333; /* Adjust color as needed */
+}
+
+.comments-link a {
+    text-decoration: none;
+    color: #0073e6; /* Adjust color as needed */
+}
+
+.comments-link a:hover {
+    text-decoration: underline;
+}
