@@ -25,16 +25,16 @@ get_header();
             the_post();
         ?>
 
-            <article>
+            <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
                 <a href="<?php the_permalink() ?>">
                     <h2><?php the_title(); ?></h2>
-                    <?php the_post_thumbnail('large'); ?>
                 </a>
+                <?php the_post_thumbnail('student-tax-blog', array('class' => 'alignleft')); ?>
                 <?php the_content(); ?>
                 <?php
                 $link = get_field('portfolio');
                 if ($link) {
-                    echo '<a class="button" href="' . esc_url($link) . '"> ' . esc_html(get_the_title()) . ' portfolio </a>';
+                    echo '<a class="portfolio-button" href="' . esc_url($link) . '"> ' . esc_html(get_the_title()) . ' portfolio </a>';
                 }
                 ?>
 

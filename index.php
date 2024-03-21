@@ -59,5 +59,5 @@ get_header();
 </script>
 <div data-aos="fade-down"></div>
 <?php
-// get_sidebar();
+get_sidebar();
 get_footer();

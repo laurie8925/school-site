@@ -391,7 +391,7 @@ textarea {
 	color: #404040;
 	font-family: "Open Sans", Helvetica, Arial, sans-serif;
 	font-size: 1rem;
-	line-height: 1.5;
+	line-height: 1.8;
 }
 
 h1,
@@ -407,14 +407,30 @@ h6 {
 h1 {
 	font-size: 2em;
 }
+@media only screen and (min-width: 600px) {
+	h1 {
+		font-size: 2.5em;
+	}
+}
 
 h2 {
 	font-size: 1.5em;
+}
+@media only screen and (min-width: 600px) {
+	h2 {
+		font-size: 2em;
+	}
 }
 
 h3,
 h4 {
 	font-size: 1.25em;
+}
+@media only screen and (min-width: 600px) {
+	h3,
+	h4 {
+		font-size: 1.5em;
+	}
 }
 
 p {
@@ -840,12 +856,6 @@ textarea {
 
 /* Header
 --------------------------------------------- */
-body {
-	margin: 0;
-	padding: 0;
-	font-family: Arial, sans-serif;
-}
-
 /* Header styles */
 .site-header {
 	background-color: #333;
@@ -937,8 +947,6 @@ body {
 
 /* Front Page
 --------------------------------------------- */
-/* Front Page
---------------------------------------------- */
 .home-blog {
 	margin: 20px;
 }
@@ -1005,10 +1013,6 @@ body {
 	margin: 0;
 }
 
-.overlay h3 {
-	margin: 0;
-}
-
 /* Adjust styles for smaller screens */
 @media screen and (max-width: 768px) {
 	.home-blog h2 {
@@ -1024,6 +1028,98 @@ body {
 		font-size: 14px;
 	}
 }
+/* Front Page
+--------------------------------------------- */
+.student-container {
+	max-width: 300px;
+	margin: 0 auto;
+}
+
+.student-container img {
+	width: 300px;
+	height: 200px;
+	-o-object-fit: cover;
+	   object-fit: cover;
+}
+
+@media only screen and (min-width: 600px) {
+	.student-section {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-around;
+	}
+	.student-container {
+		width: 45%;
+		margin: 0 0 1.5rem;
+	}
+}
+@media only screen and (min-width: 900px) {
+	.student-container {
+		width: 30%;
+	}
+}
+.single-student .wp-post-image.alignright {
+	display: block;
+	float: none;
+	margin-left: 0;
+	margin-bottom: 1rem;
+}
+@media only screen and (min-width: 600px) {
+	.single-student .wp-post-image.alignright {
+		display: inline;
+		float: right;
+		margin-left: 1.5rem;
+		margin-bottom: none;
+	}
+}
+
+.single-student ul {
+	margin-left: 0;
+}
+.single-student li {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	padding-bottom: 1.5rem;
+}
+
+.type-student .wp-post-image.alignleft {
+	display: block;
+	float: none;
+	margin-left: 0;
+	margin-bottom: 1rem;
+}
+@media only screen and (min-width: 600px) {
+	.type-student .wp-post-image.alignleft {
+		display: inline;
+		float: left;
+		margin-right: 1.5rem;
+		margin-bottom: none;
+	}
+}
+
+.archive.tax-student_category article {
+	clear: both;
+	padding-top: 1em;
+}
+.archive.tax-student_category article:first-of-type {
+	padding-top: 0;
+}
+
+.portfolio-button {
+	box-sizing: border-box;
+	display: inline-block;
+	text-align: center;
+	background-color: #a42c8c;
+	border-radius: 500px;
+	padding: 0.667rem 1.333rem;
+	font-size: 1.15rem;
+	color: #fff;
+}
+.portfolio-button:visited {
+	color: #fff;
+}
+
 /* Staff Page
 --------------------------------------------- */
 /* Footer
