@@ -15,20 +15,22 @@ get_header();
 
     <?php
     while (have_posts()) :
+        echo '<h1> Welcome to our School </h1> ';
         the_post();
-
-        get_template_part('template-parts/content', get_post_type());
-
-        // If comments are open or we have at least one comment, load up the comment template.
-        if (comments_open() || get_comments_number()) :
-            comments_template();
-        endif;
-
+    ?>
+        <div class="entry-content">
+            <?php
+            the_content();
+            ?>
+        </div><!-- .entry-content -->
+    <?php
     endwhile; // End of the loop.
     ?>
 
+
+
     <section class="home-blog">
-        <h2><?php esc_html_e('Recent News', 'School Project'); ?></h2>
+        <h2><?php esc_html_e('Recent News', 'fwd'); ?></h2>
         <?php
         $args = array(
             'post_type'      => 'post',
@@ -53,7 +55,7 @@ get_header();
         }
         ?>
         <!-- Add a link to the news page -->
-        <p><a href="<?php echo get_permalink(get_option('page_for_posts')); ?>"><?php esc_html_e('View All News', 'School Project'); ?></a></p>
+        <p><a href="<?php echo get_permalink(get_option('page_for_posts')); ?>"><?php esc_html_e('View All News', 'fwd'); ?></a></p>
     </section>
 
 
