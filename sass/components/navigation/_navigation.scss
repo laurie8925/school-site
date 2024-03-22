@@ -1,97 +1,114 @@
-// .main-navigation {
-//     display: block;
-//     width: 100%;
-//     position: relative; /* Change position to relative */
-//     z-index: 1000;
 
-//     ul {
-//         display: none;
-//         list-style: none;
-//         margin: 0;
-//         padding-left: 0;
-//         background-color: #000000;
-//         position: absolute; /* Position submenu absolutely */
-//         top: 100%;
-//         right: 0;
 
-//         ul {
-//             box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-//             position: absolute;
-//             top: 0;
-//             left: 100%;
-//         }
-
-//         li {
-//             position: relative;
-
-//             &:hover > ul,
-//             &.focus > ul {
-//                 display: block;
-//             }
-//         }
-
-//         a {
-//             width: 200px;
-//         }
-//     }
-
-//     li {
-//         position: relative;
-
-//         &:hover > a,
-//         &.focus > a {
-//         }
-//     }
-
-//     a {
-//         display: block;
-//         text-decoration: none;
-//         color: #fff;
-//         padding: 0 1rem;
-//     }
-
-//     .current_page_item > a,
-//     .current-menu-item > a,
-//     .current_page_ancestor > a,
-//     .current-menu-ancestor > a {
-//     }
-// }
-
-// /* Small menu. */
-// .menu-toggle,
-// .main-navigation.toggled ul {
-//     display: block;
-// }
-
-// @media screen and (min-width: 37.5em) {
-//     .menu-toggle {
-//         display: none;
-//     }
-
-//     .main-navigation ul {
-//         display: flex;
-//     }
-// }
-
-// .comment-navigation,
-// .posts-navigation,
-// .post-navigation {
-//     .site-main & {
-//         margin: 0 0 1.5em;
-//     }
-
-//     .nav-links {
-//         display: flex;
-//     }
-
-//     .nav-previous {
-//         flex: 1 0 50%;
-//     }
-
-//     .nav-next {
-//         text-align: end;
-//         flex: 1 0 50%;
-//     }
-// }
-
+.main-navigation {
+    display: block;
+    width: 100%;
+    position: absolute;
+    top: 6.5rem;
+    right: 0;
+    z-index: 1000;
+  }
+  
+  .main-navigation ul {
+    display: none;
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+    background-color: #333;
+  }
+  
+  .main-navigation li {
+    position: relative;
+  }
+  
+  .main-navigation li.current-menu-item > a,
+  .main-navigation li.current_page_item > a,
+  .main-navigation li:hover > a,
+  .main-navigation li.focus > a {
+    text-decoration: underline;
+    text-decoration-color: #dabbff;
+  }
+  
+  .main-navigation li.current-menu-item svg path,
+  .main-navigation li.current_page_item svg path,
+  .main-navigation li:hover > a svg path,
+  .main-navigation li.focus > a svg path {
+    fill: #fff200;
+  }
+  
+  .main-navigation a {
+    display: block;
+    padding: 0.75rem 1.25rem;
+    text-align: center;
+    color:#fff; 
+    &:visited{ 
+        color: #fff;
+    }
+  }
+  
+  .main-navigation.toggled ul {
+    display: block;
+  }
+  
+  .menu-toggle {
+    position: absolute;
+    top: -3.5rem;
+    right: 0.5rem;
+    z-index: 1100;
+    display: block;
+    width: 3.75rem;
+    padding: 1rem;
+    margin: 0;
+    border: none;
+    background: transparent;
+    color: #fff;
+  }
+  
+  @media screen and (min-width: 50em) {
+    .menu-toggle {
+      display: none;
+    }
+  
+    .main-navigation {
+      width: auto;
+      position: relative;
+      top: 0;
+      align-self: center;
+      margin-left: auto;
+    }
+  
+    .main-navigation ul,
+    .main-navigation.toggled ul {
+      display: flex;
+      justify-content: center;
+    }
+  
+    .main-navigation ul ul {
+      float: left;
+      position: absolute;
+      top: 100%;
+      left: -999em;
+      z-index: 99999;
+      flex-direction: column;
+    }
+  
+    .main-navigation ul ul a {
+      left: -999em;
+      top: 0;
+      width: 200px;
+      text-align: left;
+    }
+  
+    .main-navigation ul ul li:hover > ul,
+    .main-navigation ul ul li.focus > ul {
+      left: 100%;
+      top: 0;
+    }
+  
+    .main-navigation ul li:hover > ul,
+    .main-navigation ul li.focus > ul {
+      left: auto;
+    }
+  }
+  
 
