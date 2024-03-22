@@ -757,15 +757,37 @@ textarea {
 
 /* Widgets
 --------------------------------------------- */
-.widget {
-	margin: 0 0 1.5em;
+.widget-area {
+	white-space: nowrap;
+	overflow-x: auto;
+	padding-bottom: 20px;
 }
-.widget select {
-	max-width: 100%;
+
+.widget {
+	width: 250px;
+	margin-right: 20px;
+	display: inline-block;
+	vertical-align: top;
+	overflow: hidden;
+	max-height: 300px;
+}
+
+.widget:last-child {
+	margin-right: 0;
 }
 
 .widget-title {
-	font-size: 1.25rem;
+	background-color: #f0f0f0;
+	padding: 5px;
+	margin: 0;
+	font-size: 12px;
+	font-weight: bold;
+	line-height: 1.2;
+}
+
+.widget-content {
+	padding: 10px;
+	background-color: #fff;
 }
 
 /* Media
