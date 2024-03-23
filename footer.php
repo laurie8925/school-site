@@ -14,11 +14,7 @@
 	<footer id="colophon" class="site-footer">
 	<div class="footer-logo">
         <?php
-        // Get the ACF image field value
-		// if (function_exists('get_field')) {
-        //     if (get_field('footer_image')) {
-		// 		the_field('footer_image');
-		// 	}}
+        
 		
         // Check if custom logo is available
         if (function_exists('the_custom_logo')) {
@@ -33,7 +29,15 @@
      
         ?>
     </div>
+	<div class="credits">
+		<h3>Credits</h3>
+		<?php
+				/* translators: 1: Theme name, 2: Theme author. */
+				printf( esc_html__( 'Created by %2$s.', 'school-project' ), 'school-project', '<a href="https://rathans.com/School">Rathan Srivarathan & Laurie Yeh</a>' );
+				?>
+	</div>
 	<nav id="footer-navigation" class="footer-navigation">
+		<h3>Links</h3>
 			<?php wp_nav_menu( array( 'theme_location' => 'footer-menu') ); ?>
 		</nav>
 	
@@ -47,7 +51,7 @@
 			<span class="sep"> | </span>
 				<?php
 				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'school-project' ), 'school-project', '<a href="https://rathans.com/School">Rathan Srivarathan</a>' );
+				printf( esc_html__( 'Theme: %1$s by %2$s.', 'school-project' ), 'school-project', '<a href="https://rathans.com/School">Rathan Srivarathan & Laurie Yeh</a>' );
 				?>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
@@ -58,4 +62,4 @@
 </body>
 </html>
 
-<!-- just testing -->
+
