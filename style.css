@@ -719,6 +719,110 @@ textarea {
 --------------------------------------------------------------*/
 /* Navigation
 --------------------------------------------- */
+.main-navigation {
+	display: block;
+	width: 100%;
+	position: absolute;
+	top: 6.5rem;
+	right: 0;
+	z-index: 1000;
+}
+
+.main-navigation ul {
+	display: none;
+	list-style: none;
+	margin: 0;
+	padding-left: 0;
+	background-color: #333;
+}
+
+.main-navigation li {
+	position: relative;
+}
+
+.main-navigation li.current-menu-item > a,
+.main-navigation li.current_page_item > a,
+.main-navigation li:hover > a,
+.main-navigation li.focus > a {
+	text-decoration: underline;
+	text-decoration-color: #dabbff;
+}
+
+.main-navigation li.current-menu-item svg path,
+.main-navigation li.current_page_item svg path,
+.main-navigation li:hover > a svg path,
+.main-navigation li.focus > a svg path {
+	fill: #fff200;
+}
+
+.main-navigation a {
+	display: block;
+	padding: 0.75rem 1.25rem;
+	text-align: center;
+	color: #fff;
+}
+.main-navigation a:visited {
+	color: #fff;
+}
+
+.main-navigation.toggled ul {
+	display: block;
+}
+
+.menu-toggle {
+	position: absolute;
+	top: -3.5rem;
+	right: 0.5rem;
+	z-index: 1100;
+	display: block;
+	width: 3.75rem;
+	padding: 1rem;
+	margin: 0;
+	border: none;
+	background: transparent;
+	color: #fff;
+}
+
+@media screen and (min-width: 50em) {
+	.menu-toggle {
+		display: none;
+	}
+	.main-navigation {
+		width: auto;
+		position: relative;
+		top: 0;
+		align-self: center;
+		margin-left: auto;
+	}
+	.main-navigation ul,
+	.main-navigation.toggled ul {
+		display: flex;
+		justify-content: center;
+	}
+	.main-navigation ul ul {
+		float: left;
+		position: absolute;
+		top: 100%;
+		left: -999em;
+		z-index: 99999;
+		flex-direction: column;
+	}
+	.main-navigation ul ul a {
+		left: -999em;
+		top: 0;
+		width: 200px;
+		text-align: left;
+	}
+	.main-navigation ul ul li:hover > ul,
+	.main-navigation ul ul li.focus > ul {
+		left: 100%;
+		top: 0;
+	}
+	.main-navigation ul li:hover > ul,
+	.main-navigation ul li.focus > ul {
+		left: auto;
+	}
+}
 /* Posts and pages
 --------------------------------------------- */
 .sticky {
@@ -881,15 +985,24 @@ textarea {
 .site-header {
 	background-color: #333;
 	color: #fff;
-	padding: 20px;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	width: 100%;
+	padding: 0 20px;
+}
+@media screen and (min-width: 50em) {
+	.site-header {
+		display: grid;
+		grid-template-columns: 1fr minmax(auto, 25rem) minmax(auto, 37.5rem) 1fr;
+		justify-content: center;
+	}
 }
 
 .site-branding {
 	flex-grow: 1;
+}
+@media screen and (min-width: 50em) {
+	.site-branding {
+		grid-column: 2/3;
+		text-align: left;
+	}
 }
 
 .site-title {
@@ -905,65 +1018,6 @@ textarea {
 .site-description {
 	color: #fff;
 	font-size: 14px;
-}
-
-.main-navigation {
-	text-align: center;
-}
-
-.main-navigation ul {
-	list-style: none;
-	padding: 0;
-	margin: 0;
-	display: inline-flex;
-	justify-content: center;
-}
-
-.main-navigation li {
-	margin-right: 20px;
-	position: relative;
-}
-
-.main-navigation ul ul {
-	display: none;
-	position: absolute;
-	top: 100%;
-	left: 0;
-	background-color: #333;
-	min-width: 200px;
-	padding: 10px;
-	border-radius: 5px;
-	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-.main-navigation li:hover > ul {
-	display: block;
-}
-
-.main-navigation ul ul li {
-	margin-right: 0;
-}
-
-.main-navigation ul ul a {
-	display: block;
-	padding: 8px 16px;
-	color: #fff;
-	text-decoration: none;
-	font-size: 14px;
-}
-
-.main-navigation ul ul a:hover {
-	background-color: #555;
-}
-
-.main-navigation a, .main-navigation a:visited {
-	color: #fff;
-	text-decoration: none;
-	font-size: 16px;
-}
-
-.main-navigation a:hover {
-	text-decoration: underline;
 }
 
 /* Front Page
@@ -1143,6 +1197,19 @@ textarea {
 
 /* Staff Page
 --------------------------------------------- */
+.staff-section {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+.staff-section h2 {
+	width: 100%;
+}
+
+.staff-container {
+	width: 45%;
+}
+
 /* Footer
 --------------------------------------------- */
 /* Footer container */
