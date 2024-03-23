@@ -1175,6 +1175,19 @@ textarea {
 
 /* Staff Page
 --------------------------------------------- */
+.staff-section {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+.staff-section h2 {
+	width: 100%;
+}
+
+.staff-container {
+	width: 45%;
+}
+
 /* Footer
 --------------------------------------------- */
 /* Footer container */

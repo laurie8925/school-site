@@ -21,7 +21,7 @@ if ($adam_query->have_posts()) {
     echo '<section class="staff-section"><h2 id="' . esc_attr(get_the_ID()) . '">' . esc_html__('Administrative', 'School Project') . '</h2>';
     while ($adam_query->have_posts()) {
         $adam_query->the_post();
-
+        echo '<section class="staff-container">';
         if (has_post_thumbnail()) {
             the_post_thumbnail('thumbnail');
         }
@@ -31,16 +31,17 @@ if ($adam_query->have_posts()) {
                 echo '<h3 id="' . esc_attr(get_the_ID()) . '">' . esc_html(get_the_title()) . '</h3>';
                 the_field('staff_biography');
                 if (get_field('courses')) {
-                    echo '<p>Courses Teaching: ' . get_field('courses') . '</p>';
+                    echo '<p><strong>Courses Teaching</strong>: ' . get_field('courses') . '</p>';
                 }
 
                 // links
                 $link = get_field('instructor_website');
                 if ($link) : ?> <!--link statement-->
                     <a class="button" href="<?php echo esc_url($link); ?>"> <?php echo esc_html('Visit Instructor Website', 'School Project'); ?></a>
-                <?php endif; //link if statement
+<?php endif; //link if statement
             }
         }
+        echo '</section>';
     }
     wp_reset_postdata();
     echo '</section>';
@@ -61,7 +62,7 @@ if ($faculty_query->have_posts()) {
     echo '<section class="staff-section"><h2 id="' . esc_attr(get_the_ID()) . '">' . esc_html__('Faculty', 'School Project') . '</h2>';
     while ($faculty_query->have_posts()) {
         $faculty_query->the_post();
-
+        echo '<section class="staff-container">';
         if (has_post_thumbnail()) {
             the_post_thumbnail('thumbnail');
         }
@@ -70,7 +71,7 @@ if ($faculty_query->have_posts()) {
         echo '<p>' . get_field('staff_biography') . '</p>';
         // Display additional information for Faculty
         if (get_field('courses')) {
-            echo '<p>Courses Teaching: ' . get_field('courses') . '</p>';
+            echo '<p><strong>Courses Teaching:</strong> ' . get_field('courses') . '</p>';
         }
         $link = get_field('instructor_website');
         if ($link) {
@@ -78,6 +79,7 @@ if ($faculty_query->have_posts()) {
 
             // echo '<p>Instructor Website: <a href="' . get_field('instructor_website') . '">' . get_field('instructor_website') . '</a></p>';
         }
+        echo '</section>';
     }
     wp_reset_postdata();
     echo '</section>';
