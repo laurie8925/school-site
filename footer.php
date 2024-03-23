@@ -14,18 +14,30 @@
 	<footer id="colophon" class="site-footer">
 	<div class="footer-logo">
         <?php
-        // Get the ACF image field value
-        $footer_logo = get_field('footer_image', 'option');
-
-        // Check if the logo exists
-        if ($footer_logo) {
-            echo '<a href="' . esc_url(home_url('/')) . '"><img src="' . esc_url($footer_logo['url']) . '" alt="' . esc_attr(get_bloginfo('name')) . '"></a>';
-        } else {
-            echo '<a href="' . esc_url(home_url('/')) . '">' . get_bloginfo('name') . '</a>';
+        
+		
+        // Check if custom logo is available
+        if (function_exists('the_custom_logo')) {
+            $custom_logo_id = get_theme_mod('custom_logo');
+            $logo_url = wp_get_attachment_image_url($custom_logo_id, 'full');
+            if ($logo_url) {
+                echo '<a href="' . esc_url(home_url('/')) . '">';
+                echo '<img src="' . esc_url($logo_url) . '" alt="' . get_bloginfo('name') . '">';
+                echo '</a>';
+            }
         }
+     
         ?>
     </div>
+	<div class="credits">
+		<h3>Credits</h3>
+		<?php
+				/* translators: 1: Theme name, 2: Theme author. */
+				printf( esc_html__( 'Created by %2$s.', 'school-project' ), 'school-project', '<a href="https://rathans.com/School">Rathan Srivarathan & Laurie Yeh</a>' );
+				?>
+	</div>
 	<nav id="footer-navigation" class="footer-navigation">
+		<h3>Links</h3>
 			<?php wp_nav_menu( array( 'theme_location' => 'footer-menu') ); ?>
 		</nav>
 	
@@ -39,7 +51,7 @@
 			<span class="sep"> | </span>
 				<?php
 				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'school-project' ), 'school-project', '<a href="https://rathans.com/School">Rathan Srivarathan</a>' );
+				printf( esc_html__( 'Theme: %1$s by %2$s.', 'school-project' ), 'school-project', '<a href="https://rathans.com/School">Rathan Srivarathan & Laurie Yeh</a>' );
 				?>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
@@ -50,4 +62,4 @@
 </body>
 </html>
 
-<!-- just testing -->
+

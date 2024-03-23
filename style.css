@@ -1212,61 +1212,75 @@ textarea {
 
 /* Footer
 --------------------------------------------- */
-/* Footer container */
-#colophon {
-	background-color: #343a40; /* Dark grey background */
-	padding: 20px;
+/* Footer Styles */
+.site-footer {
+	background-color: #333; /* Change the background color as needed */
+	color: #fff; /* Set text color to white */
+	padding: 50px 0; /* Adjust padding as needed */
+	text-align: center; /* Align content to center */
 }
 
-/* Footer logo */
 .footer-logo img {
-	max-width: 200px; /* Adjust the max-width as needed */
+	width: 150px; /* Adjust logo width as needed */
+	height: auto; /* Maintain aspect ratio */
 }
 
-/* Footer navigation */
-#footer-navigation {
-	margin-top: 20px;
+.credits {
+	margin-top: 30px; /* Adjust margin as needed */
 }
 
-#footer-navigation ul {
-	list-style: none;
-	padding: 0;
+.credits h3 {
+	font-size: 20px; /* Adjust font size as needed */
+	color: #fff; /* Set text color to white */
 }
 
-#footer-navigation ul li {
-	display: inline;
-	margin-right: 10px;
+.credits a {
+	color: white;
 }
 
-#footer-navigation ul li a {
-	color: #fff; /* White text color */
+.footer-navigation {
+	margin-top: 30px; /* Adjust margin as needed */
 	text-decoration: none;
 }
 
-#footer-navigation ul li a:hover {
-	text-decoration: underline;
+.footer-navigation h3 {
+	font-size: 20px; /* Adjust font size as needed */
+	color: #fff; /* Set text color to white */
 }
 
-/* Site info */
+.footer-navigation a {
+	color: white;
+	text-decoration: none;
+}
+
+.footer-navigation ul {
+	list-style-type: none;
+	padding-left: none;
+}
+
 .site-info {
-	margin-top: 20px;
-	font-size: 14px;
-	color: #fff; /* White text color */
+	margin-top: 30px; /* Adjust margin as needed */
 }
 
 .site-info a {
-	color: #fff; /* White text color */
-	text-decoration: none;
+	color: #fff; /* Set link color to white */
 }
 
 .site-info a:hover {
-	text-decoration: underline;
+	color: #ccc; /* Change link color on hover */
+	text-decoration: underline; /* Add underline on hover */
 }
 
-.footer-logo a:visited {
-	color: #fff;
+.sep {
+	color: #fff; /* Set separator color to white */
 }
 
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+	.footer-logo img {
+		width: 100px; /* Adjust logo width for smaller screens */
+	}
+}
 /* Footer
 --------------------------------------------- */
 /* Style for categories */
